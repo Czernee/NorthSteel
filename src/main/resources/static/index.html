@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление поставками</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <!-- Форма добавления поставщика -->
+    <div class="form-section">
+        <h2>Добавить поставщика</h2>
+        <form id="addSupplierForm">
+            <input type="text" placeholder="Имя поставщика" required>
+            <input type="text" placeholder="Контактная информация" required>
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+
+    <!-- Форма добавления продукта -->
+    <div class="form-section">
+        <h2>Добавить продукт</h2>
+        <form id="addProductForm">
+            <input type="text" placeholder="Название (например, Груша тип 1)" required>
+            <input type="text" placeholder="Тип (Груша/Яблоко)" required>
+            <input type="number" placeholder="Цена за кг" required>
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+
+    <!-- Форма добавления поставки -->
+    <div class="form-section">
+        <h2>Добавить поставку</h2>
+        <form id="addDeliveryForm">
+            <input type="number" placeholder="ID поставщика" required>
+            <input type="date" required>
+            <div id="deliveryItems">
+                <div class="item">
+                    <input type="number" placeholder="ID продукта" required>
+                    <input type="number" placeholder="Вес (кг)" required>
+                </div>
+            </div>
+            <button type="button" onclick="addDeliveryItem()">+ Добавить продукт</button>
+            <button type="submit">Сохранить поставку</button>
+        </form>
+    </div>
+
+    <!-- Отчёт за период -->
+    <div class="report-section">
+        <h2>Отчёт за период</h2>
+        <input type="date" id="startDate">
+        <input type="date" id="endDate">
+        <button onclick="loadReport()">Загрузить</button>
+        <table id="reportTable">
+            <thead>
+            <tr>
+                <th>Поставщик</th>
+                <th>Продукт</th>
+                <th>Вес (кг)</th>
+                <th>Стоимость</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
